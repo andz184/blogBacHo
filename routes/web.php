@@ -12,10 +12,10 @@ Route::get('/articles/{article}', [HomeController::class, 'show'])->name('articl
 // Admin routes
 Route::prefix('admin')->name('admin.')->group(function () {
     // Guest routes
-    Route::middleware('guest')->group(function () {
+    // Route::middleware('guest')->group(function () {
         Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
         Route::post('/login', [AuthController::class, 'login']);
-    });
+    // });
 
     // Protected routes
     Route::middleware('auth')->group(function () {
