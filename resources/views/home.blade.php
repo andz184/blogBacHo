@@ -1,13 +1,31 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- Navigation Menu -->
+<!-- Hero Banner with Background Image -->
+<div class="relative">
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+        <img src="{{ asset('images/banner-bac-ho.jpg') }}"
+             alt="Chủ tịch Hồ Chí Minh"
+             class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+    </div>
 
-
-<div class="bg-red-700 text-white py-16">
-    <div class="container mx-auto px-4">
-        <h1 class="text-4xl font-bold text-center mb-4">Blog Bác Hồ</h1>
-        <p class="text-xl text-center">Tìm hiểu về cuộc đời và sự nghiệp của Chủ tịch Hồ Chí Minh</p>
+    <!-- Content -->
+    <div class="relative py-32 lg:py-48">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                    Tiểu sử Bác Hồ
+                </h1>
+                <p class="text-xl md:text-2xl text-white mb-8">
+                    Tìm hiểu về cuộc đời và sự nghiệp của Chủ tịch Hồ Chí Minh
+                </p>
+                <div class="text-white text-lg italic">
+                    "Không có gì quý hơn độc lập tự do"
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -15,10 +33,11 @@
     <!-- Danh sách bài viết -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
         @foreach($articles as $article)
+
             <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
                 @if($article->image)
                     <div class="relative h-48">
-                        <img src="{{ Storage::url($article->image) }}"
+                        <img src="{{ asset('storage/' . $article->image) }}"
                              alt="{{ $article->title }}"
                              class="w-full h-full object-cover">
                         <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">

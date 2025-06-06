@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Bác Hồ</title>
+    <title>Tiểu sử Bác Hồ</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -20,7 +20,7 @@
                 <!-- Logo/Home -->
                 <div class="flex items-center space-x-8">
                     <a href="{{ route('home') }}" class="text-red-700 font-bold text-xl">
-                        Blog Bác Hồ
+                        Tiểu sử Bác Hồ
                     </a>
 
                     <!-- Main Navigation -->
@@ -31,6 +31,10 @@
                                 Trang chủ
                             </a>
 
+                            <a href="{{ route('admin.login') }}"
+                            class="px-3 py-2 text-gray-700 hover:text-red-700 {{ request()->routeIs('home') ? 'text-red-700 font-semibold' : '' }}">
+                             Đăng nhập
+                         </a>
                             <!-- Dropdown Menu -->
                             <div class="relative group">
                                 <button class="px-3 py-2 text-gray-700 hover:text-red-700 inline-flex items-center">
@@ -84,6 +88,7 @@
                 @endforeach
             </div>
         </div>
+
     </nav>
 
     <main>
@@ -94,25 +99,14 @@
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
-                    <h3 class="text-lg font-bold mb-4">Về Blog Bác Hồ</h3>
+                    <h3 class="text-lg font-bold mb-4">Về Tiểu sử Bác Hồ</h3>
                     <p class="text-gray-300">
                         Blog chia sẻ thông tin về cuộc đời và sự nghiệp của Chủ tịch Hồ Chí Minh - Người đã cống hiến cả cuộc đời cho sự nghiệp giải phóng dân tộc.
                     </p>
                 </div>
                 <div>
                     <h3 class="text-lg font-bold mb-4">Liên kết hữu ích</h3>
-                    <ul class="space-y-2">
-                        <li>
-                            <a href="http://www.bqllang.gov.vn/" class="text-gray-300 hover:text-white">
-                                Lăng Chủ tịch Hồ Chí Minh
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://www.btgcp.gov.vn/" class="text-gray-300 hover:text-white">
-                                Ban Tuyên giáo Trung ương
-                            </a>
-                        </li>
-                    </ul>
+
                 </div>
                 <div>
                     <h3 class="text-lg font-bold mb-4">Theo dõi chúng tôi</h3>
@@ -130,7 +124,7 @@
                 </div>
             </div>
             <div class="mt-8 pt-8 border-t border-red-700 text-center text-gray-300">
-                <p>&copy; {{ date('Y') }} Blog Bác Hồ. All rights reserved.</p>
+                <p>&copy; {{ date('Y') }} Tiểu sử Bác Hồ. All rights reserved.</p>
             </div>
         </div>
     </footer>

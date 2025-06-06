@@ -8,7 +8,7 @@
                 Đăng nhập hệ thống
             </h2>
             <p class="mt-2 text-center text-sm text-gray-600">
-                Blog Bác Hồ - Trang quản trị
+                Tiểu sử Bác Hồ - Trang quản trị
             </p>
         </div>
 

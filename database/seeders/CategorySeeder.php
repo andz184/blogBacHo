@@ -16,43 +16,50 @@ class CategorySeeder extends Seeder
         $categories = [
             [
                 'name' => 'Thời niên thiếu',
-                'description' => 'Giai đoạn thời niên thiếu của Chủ tịch Hồ Chí Minh',
-                'is_active' => true,
+                'slug' => 'thoi-nien-thieu',
+                'description' => 'Giai đoạn từ khi sinh ra đến năm 1911',
+                'is_active' => true
+            ],
+            [
+                'name' => 'Hành trình tìm đường cứu nước',
+                'slug' => 'hanh-trinh-tim-duong-cuu-nuoc',
+                'description' => 'Giai đoạn từ 1911 đến 1920',
+                'is_active' => true
             ],
             [
                 'name' => 'Hoạt động cách mạng',
-                'description' => 'Giai đoạn hoạt động cách mạng của Người',
-                'is_active' => true,
+                'slug' => 'hoat-dong-cach-mang',
+                'description' => 'Các hoạt động cách mạng từ 1920 đến 1945',
+                'is_active' => true
             ],
             [
                 'name' => 'Kháng chiến chống Pháp',
-                'description' => 'Thời kỳ kháng chiến chống thực dân Pháp',
-                'is_active' => true,
+                'slug' => 'khang-chien-chong-phap',
+                'description' => 'Giai đoạn từ 1945 đến 1954',
+                'is_active' => true
             ],
             [
                 'name' => 'Xây dựng CNXH ở miền Bắc',
-                'description' => 'Giai đoạn xây dựng chủ nghĩa xã hội ở miền Bắc',
-                'is_active' => true,
+                'slug' => 'xay-dung-cnxh-o-mien-bac',
+                'description' => 'Giai đoạn từ 1954 đến 1969',
+                'is_active' => true
             ],
             [
-                'name' => 'Kháng chiến chống Mỹ',
-                'description' => 'Thời kỳ kháng chiến chống đế quốc Mỹ',
-                'is_active' => true,
+                'name' => 'Tư tưởng Hồ Chí Minh',
+                'slug' => 'tu-tuong-ho-chi-minh',
+                'description' => 'Những tư tưởng, đạo đức và phong cách của Bác',
+                'is_active' => true
             ],
             [
                 'name' => 'Di chúc và Di sản',
-                'description' => 'Di chúc và Di sản của Chủ tịch Hồ Chí Minh',
-                'is_active' => true,
-            ],
+                'slug' => 'di-chuc-va-di-san',
+                'description' => 'Di chúc và những di sản Người để lại',
+                'is_active' => true
+            ]
         ];
 
         foreach ($categories as $category) {
-            Category::create([
-                'name' => $category['name'],
-                'slug' => Str::slug($category['name']),
-                'description' => $category['description'],
-                'is_active' => $category['is_active'],
-            ]);
+            Category::create($category);
         }
     }
 }

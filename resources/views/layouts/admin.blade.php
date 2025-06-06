@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản trị - Blog Bác Hồ</title>
+    <title>Quản trị - Tiểu sử Bác Hồ</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
@@ -15,7 +15,7 @@
                     <div class="flex">
                         <div class="flex-shrink-0 flex items-center">
                             <a href="{{ route('admin.articles.index') }}" class="text-xl font-bold text-red-600">
-                                <i class="fas fa-home mr-2"></i>Blog Bác Hồ - Quản trị
+                                <i class="fas fa-home mr-2"></i>Tiểu sử Bác Hồ - Quản trị
                             </a>
                         </div>
                         <div class="hidden sm:ml-6 sm:flex sm:space-x-8">

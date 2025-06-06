@@ -22,12 +22,19 @@ class HomeController extends Controller
         return view('home', compact('articles', 'categories'));
     }
 
-    public function show(Article $article)
+    public function show($id)
     {
+        $article = Article::findOrFail($id);
+
         if (!$article->is_published) {
             abort(404);
         }
-        return view('articles.show', compact('article'));
+
+        $categories = Category::withCount('articles')
+            ->where('is_active', true)
+            ->get();
+
+        return view('articles.show', compact('article', 'categories'));
     }
 
     public function category($slug)

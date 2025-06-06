@@ -8,16 +8,14 @@ use Illuminate\Support\Facades\Route;
 
 // Public routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/articles/{article}', [HomeController::class, 'show'])->name('articles.show');
+Route::get('/articles/{id}', [HomeController::class, 'show'])->name('articles.show');
 Route::get('/category/{slug}', [HomeController::class, 'category'])->name('category.show');
 
 // Admin routes
 Route::prefix('admin')->name('admin.')->group(function () {
     // Guest routes
-    // Route::middleware('guest')->group(function () {
-        Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-        Route::post('/login', [AuthController::class, 'login']);
-    // });
+    Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [AuthController::class, 'login']);
 
     // Protected routes
     Route::middleware('auth')->group(function () {

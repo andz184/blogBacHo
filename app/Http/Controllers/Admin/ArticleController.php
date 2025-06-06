@@ -136,7 +136,7 @@ class ArticleController extends Controller
                 'title' => 'required|max:255',
                 'content' => 'required',
                 'category_id' => 'required|exists:categories,id',
-                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
                 'period' => 'nullable|string|max:255',
                 'event_date' => 'nullable|date_format:Y-m-d',
                 'location' => 'nullable|string|max:255',
