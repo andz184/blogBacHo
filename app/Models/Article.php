@@ -15,16 +15,29 @@ class Article extends Model
      */
     protected $fillable = [
         'title',
+       
         'content',
+        'image',
+        'period',
+        'event_date',
+        'location',
         'is_published',
-        'id_stage'
+        'category_id'
     ];
 
     /**
-     * Thiết lập quan hệ với bảng stages
+     * Các trường cần cast
      */
-    public function stage(): BelongsTo
+    protected $casts = [
+        'event_date' => 'date',
+        'is_published' => 'boolean'
+    ];
+
+    /**
+     * Thiết lập quan hệ với bảng categories
+     */
+    public function category(): BelongsTo
     {
-        return $this->belongsTo(Stage::class, 'id_stage');
+        return $this->belongsTo(Category::class);
     }
 }

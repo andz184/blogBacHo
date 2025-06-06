@@ -41,6 +41,21 @@
             </div>
 
             <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="category_id">
+                    Danh mục
+                </label>
+                <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="category_id" name="category_id" required>
+                    <option value="">-- Chọn danh mục --</option>
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}" {{ old('category_id', $article->category_id) == $category->id ? 'selected' : '' }}>
+                            {{ $category->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="image">
                     Hình ảnh
                 </label>
@@ -66,7 +81,7 @@
                     Ngày sự kiện
                 </label>
                 <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="event_date" type="date" name="event_date" value="{{ old('event_date', $article->event_date ? $article->event_date->format('Y-m-d') : '') }}">
+                    id="event_date" type="date" name="event_date" value="{{ old('event_date', $article->event_date ? date('Y-m-d', strtotime($article->event_date)) : '') }}">
             </div>
 
             <div class="mb-4">

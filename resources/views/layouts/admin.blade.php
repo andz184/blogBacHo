@@ -18,6 +18,16 @@
                                 <i class="fas fa-home mr-2"></i>Blog Bác Hồ - Quản trị
                             </a>
                         </div>
+                        <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                            <a href="{{ route('admin.articles.index') }}"
+                               class="inline-flex items-center px-1 pt-1 {{ request()->routeIs('admin.articles.*') ? 'border-b-2 border-red-500 text-red-600' : 'text-gray-500 hover:text-red-600' }}">
+                                <i class="fas fa-newspaper mr-2"></i>Bài viết
+                            </a>
+                            <a href="{{ route('admin.categories.index') }}"
+                               class="inline-flex items-center px-1 pt-1 {{ request()->routeIs('admin.categories.*') ? 'border-b-2 border-red-500 text-red-600' : 'text-gray-500 hover:text-red-600' }}">
+                                <i class="fas fa-folder mr-2"></i>Danh mục
+                            </a>
+                        </div>
                     </div>
                     <div class="flex items-center">
                         <a href="{{ route('home') }}" class="text-gray-600 hover:text-red-600 mr-4" target="_blank">
@@ -33,6 +43,20 @@
                 </div>
             </div>
         </nav>
+
+        <!-- Mobile menu -->
+        <div class="sm:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="{{ route('admin.articles.index') }}"
+                   class="block px-3 py-2 rounded-md {{ request()->routeIs('admin.articles.*') ? 'bg-red-50 text-red-600' : 'text-gray-500 hover:bg-red-50 hover:text-red-600' }}">
+                    <i class="fas fa-newspaper mr-2"></i>Bài viết
+                </a>
+                <a href="{{ route('admin.categories.index') }}"
+                   class="block px-3 py-2 rounded-md {{ request()->routeIs('admin.categories.*') ? 'bg-red-50 text-red-600' : 'text-gray-500 hover:bg-red-50 hover:text-red-600' }}">
+                    <i class="fas fa-folder mr-2"></i>Danh mục
+                </a>
+            </div>
+        </div>
     @endauth
 
     <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">

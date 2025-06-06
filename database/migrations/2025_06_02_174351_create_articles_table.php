@@ -20,6 +20,7 @@ return new class extends Migration
             $table->date('event_date')->nullable(); // Ngày sự kiện
             $table->string('location')->nullable(); // Địa điểm
             $table->boolean('is_published')->default(true);
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

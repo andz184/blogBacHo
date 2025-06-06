@@ -39,6 +39,21 @@
             </div>
 
             <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="category_id">
+                    Danh mục
+                </label>
+                <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="category_id" name="category_id" required>
+                    <option value="">-- Chọn danh mục --</option>
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                            {{ $category->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="image">
                     Hình ảnh
                 </label>
@@ -50,9 +65,6 @@
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="period">
                     Giai đoạn lịch sử
                 </label>
-                <select name="stage" id="stage">
-                    
-                </select>
                 <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="period" type="text" name="period" value="{{ old('period') }}">
             </div>

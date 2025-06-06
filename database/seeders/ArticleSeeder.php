@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Storage;
@@ -15,6 +16,13 @@ class ArticleSeeder extends Seeder
      */
     public function run(): void
     {
+        $nienThieu = Category::where('name', 'Thời niên thiếu')->first()->id;
+        $hoatDong = Category::where('name', 'Hoạt động cách mạng')->first()->id;
+        $chongPhap = Category::where('name', 'Kháng chiến chống Pháp')->first()->id;
+        $xayDung = Category::where('name', 'Xây dựng CNXH ở miền Bắc')->first()->id;
+        $chongMy = Category::where('name', 'Kháng chiến chống Mỹ')->first()->id;
+        $diSan = Category::where('name', 'Di chúc và Di sản')->first()->id;
+
         // Tạo thư mục lưu trữ ảnh
         Storage::disk('public')->makeDirectory('articles');
 
@@ -27,7 +35,8 @@ class ArticleSeeder extends Seeder
                 'period' => 'Thời niên thiếu (1890-1911)',
                 'event_date' => '1890-05-19',
                 'location' => 'Làng Kim Liên, Nghệ An',
-                'is_published' => true
+                'is_published' => true,
+                'category_id' => $nienThieu,
             ],
             [
                 'title' => 'Tuổi thơ và học tập tại quê nhà',
@@ -36,7 +45,8 @@ class ArticleSeeder extends Seeder
                 'period' => 'Thời niên thiếu (1890-1911)',
                 'event_date' => '1895-01-01',
                 'location' => 'Nghệ An - Huế',
-                'is_published' => true
+                'is_published' => true,
+                'category_id' => $nienThieu,
             ],
             [
                 'title' => 'Học tập tại trường Quốc học Huế',
@@ -45,7 +55,8 @@ class ArticleSeeder extends Seeder
                 'period' => 'Thời niên thiếu (1890-1911)',
                 'event_date' => '1907-01-01',
                 'location' => 'Huế',
-                'is_published' => true
+                'is_published' => true,
+                'category_id' => $nienThieu,
             ],
             [
                 'title' => 'Dạy học tại trường Dục Thanh',
@@ -54,7 +65,8 @@ class ArticleSeeder extends Seeder
                 'period' => 'Thời niên thiếu (1890-1911)',
                 'event_date' => '1910-01-01',
                 'location' => 'Phan Thiết, Bình Thuận',
-                'is_published' => true
+                'is_published' => true,
+                'category_id' => $nienThieu,
             ]
         ];
 
@@ -67,7 +79,8 @@ class ArticleSeeder extends Seeder
                 'period' => 'Hành trình tìm đường cứu nước (1911-1920)',
                 'event_date' => '1911-06-05',
                 'location' => 'Sài Gòn',
-                'is_published' => true
+                'is_published' => true,
+                'category_id' => $hoatDong,
             ],
             [
                 'title' => 'Cuộc sống và hoạt động tại Pháp',
@@ -76,7 +89,8 @@ class ArticleSeeder extends Seeder
                 'period' => 'Hành trình tìm đường cứu nước (1911-1920)',
                 'event_date' => '1917-01-01',
                 'location' => 'Paris, Pháp',
-                'is_published' => true
+                'is_published' => true,
+                'category_id' => $hoatDong,
             ],
             [
                 'title' => 'Hoạt động tại Luân Đôn',
@@ -85,7 +99,8 @@ class ArticleSeeder extends Seeder
                 'period' => 'Hành trình tìm đường cứu nước (1911-1920)',
                 'event_date' => '1913-01-01',
                 'location' => 'Luân Đôn, Anh',
-                'is_published' => true
+                'is_published' => true,
+                'category_id' => $hoatDong,
             ],
             [
                 'title' => 'Thời kỳ hoạt động tại Mỹ',
@@ -94,7 +109,8 @@ class ArticleSeeder extends Seeder
                 'period' => 'Hành trình tìm đường cứu nước (1911-1920)',
                 'event_date' => '1912-01-01',
                 'location' => 'Boston, Hoa Kỳ',
-                'is_published' => true
+                'is_published' => true,
+                'category_id' => $hoatDong,
             ]
         ];
 
@@ -107,7 +123,8 @@ class ArticleSeeder extends Seeder
                 'period' => 'Hoạt động cách mạng (1921-1940)',
                 'event_date' => '1925-06-19',
                 'location' => 'Quảng Châu, Trung Quốc',
-                'is_published' => true
+                'is_published' => true,
+                'category_id' => $hoatDong,
             ],
             [
                 'title' => 'Thành lập Đảng Cộng sản Việt Nam',
@@ -116,7 +133,8 @@ class ArticleSeeder extends Seeder
                 'period' => 'Hoạt động cách mạng (1921-1940)',
                 'event_date' => '1930-02-03',
                 'location' => 'Hương Cảng, Trung Quốc',
-                'is_published' => true
+                'is_published' => true,
+                'category_id' => $hoatDong,
             ],
             [
                 'title' => 'Hoạt động tại Liên Xô và Trung Quốc',
@@ -125,7 +143,8 @@ class ArticleSeeder extends Seeder
                 'period' => 'Hoạt động cách mạng (1921-1940)',
                 'event_date' => '1934-01-01',
                 'location' => 'Liên Xô - Trung Quốc',
-                'is_published' => true
+                'is_published' => true,
+                'category_id' => $hoatDong,
             ]
         ];
 
@@ -138,7 +157,8 @@ class ArticleSeeder extends Seeder
                 'period' => 'Lãnh đạo cách mạng (1941-1969)',
                 'event_date' => '1941-01-28',
                 'location' => 'Pác Bó, Cao Bằng',
-                'is_published' => true
+                'is_published' => true,
+                'category_id' => $hoatDong,
             ],
             [
                 'title' => 'Cách mạng Tháng Tám thành công',
@@ -147,7 +167,8 @@ class ArticleSeeder extends Seeder
                 'period' => 'Lãnh đạo cách mạng (1941-1969)',
                 'event_date' => '1945-08-19',
                 'location' => 'Hà Nội',
-                'is_published' => true
+                'is_published' => true,
+                'category_id' => $hoatDong,
             ],
             [
                 'title' => 'Tuyên ngôn độc lập khai sinh nước Việt Nam Dân chủ Cộng hòa',
@@ -156,7 +177,8 @@ class ArticleSeeder extends Seeder
                 'period' => 'Lãnh đạo cách mạng (1941-1969)',
                 'event_date' => '1945-09-02',
                 'location' => 'Hà Nội',
-                'is_published' => true
+                'is_published' => true,
+                'category_id' => $hoatDong,
             ],
             [
                 'title' => 'Lời kêu gọi toàn quốc kháng chiến',
@@ -165,7 +187,8 @@ class ArticleSeeder extends Seeder
                 'period' => 'Lãnh đạo cách mạng (1941-1969)',
                 'event_date' => '1946-12-19',
                 'location' => 'Hà Nội',
-                'is_published' => true
+                'is_published' => true,
+                'category_id' => $hoatDong,
             ],
             [
                 'title' => 'Phát động phong trào thi đua yêu nước',
@@ -174,7 +197,8 @@ class ArticleSeeder extends Seeder
                 'period' => 'Lãnh đạo cách mạng (1941-1969)',
                 'event_date' => '1948-06-11',
                 'location' => 'Việt Bắc',
-                'is_published' => true
+                'is_published' => true,
+                'category_id' => $hoatDong,
             ],
             [
                 'title' => 'Chiến thắng Điện Biên Phủ',
@@ -183,7 +207,8 @@ class ArticleSeeder extends Seeder
                 'period' => 'Lãnh đạo cách mạng (1941-1969)',
                 'event_date' => '1954-05-07',
                 'location' => 'Điện Biên Phủ',
-                'is_published' => true
+                'is_published' => true,
+                'category_id' => $hoatDong,
             ]
         ];
 
@@ -196,7 +221,8 @@ class ArticleSeeder extends Seeder
                 'period' => 'Di sản của Bác',
                 'event_date' => '1960-09-15',
                 'location' => 'Hà Nội',
-                'is_published' => true
+                'is_published' => true,
+                'category_id' => $diSan,
             ],
             [
                 'title' => 'Tư tưởng Hồ Chí Minh về xây dựng Đảng',
@@ -205,7 +231,8 @@ class ArticleSeeder extends Seeder
                 'period' => 'Di sản của Bác',
                 'event_date' => '1969-02-03',
                 'location' => 'Hà Nội',
-                'is_published' => true
+                'is_published' => true,
+                'category_id' => $diSan,
             ],
             [
                 'title' => 'Di chúc của Chủ tịch Hồ Chí Minh',
@@ -214,7 +241,8 @@ class ArticleSeeder extends Seeder
                 'period' => 'Di sản của Bác',
                 'event_date' => '1969-05-10',
                 'location' => 'Hà Nội',
-                'is_published' => true
+                'is_published' => true,
+                'category_id' => $diSan,
             ],
             [
                 'title' => 'Tấm gương đạo đức Hồ Chí Minh',
@@ -223,7 +251,8 @@ class ArticleSeeder extends Seeder
                 'period' => 'Di sản của Bác',
                 'event_date' => '1969-09-02',
                 'location' => 'Hà Nội',
-                'is_published' => true
+                'is_published' => true,
+                'category_id' => $diSan,
             ]
         ];
 

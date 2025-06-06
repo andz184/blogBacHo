@@ -14,21 +14,74 @@
     </style>
 </head>
 <body class="bg-gray-100">
-    <nav class="bg-white shadow-lg">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between h-16">
-                <div class="flex">
-                    <div class="flex-shrink-0 flex items-center">
-                        <a href="{{ route('home') }}" class="text-2xl font-bold text-red-700">
-                            Blog Bác Hồ
-                        </a>
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo/Home -->
+                <div class="flex items-center space-x-8">
+                    <a href="{{ route('home') }}" class="text-red-700 font-bold text-xl">
+                        Blog Bác Hồ
+                    </a>
+
+                    <!-- Main Navigation -->
+                    <div class="hidden md:block">
+                        <div class="flex items-center space-x-4">
+                            <a href="{{ route('home') }}"
+                               class="px-3 py-2 text-gray-700 hover:text-red-700 {{ request()->routeIs('home') ? 'text-red-700 font-semibold' : '' }}">
+                                Trang chủ
+                            </a>
+
+                            <!-- Dropdown Menu -->
+                            <div class="relative group">
+                                <button class="px-3 py-2 text-gray-700 hover:text-red-700 inline-flex items-center">
+                                    <span>Danh mục</span>
+                                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </button>
+                                <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden group-hover:block z-50">
+                                    <div class="py-1">
+                                        @foreach($categories as $category)
+                                            <a href="{{ route('category.show', $category->slug) }}"
+                                               class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-700 {{ request()->is('category/'.$category->slug) ? 'bg-red-50 text-red-700 font-semibold' : '' }}">
+                                                {{ $category->name }}
+                                                <span class="text-xs text-gray-500">({{ $category->articles_count }})</span>
+                                            </a>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="flex items-center">
-                    <a href="{{ route('home') }}" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
-                        Trang chủ
-                    </a>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button"
+                            class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-red-700 hover:bg-red-50 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
                 </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="{{ route('home') }}"
+                   class="block px-3 py-2 text-gray-700 hover:bg-red-50 hover:text-red-700 {{ request()->routeIs('home') ? 'bg-red-50 text-red-700 font-semibold' : '' }}">
+                    Trang chủ
+                </a>
+                <div class="px-3 py-2 text-gray-700 font-medium">Danh mục:</div>
+                @foreach($categories as $category)
+                    <a href="{{ route('category.show', $category->slug) }}"
+                       class="block px-6 py-2 text-gray-700 hover:bg-red-50 hover:text-red-700 {{ request()->is('category/'.$category->slug) ? 'bg-red-50 text-red-700 font-semibold' : '' }}">
+                        {{ $category->name }}
+                        <span class="text-xs text-gray-500">({{ $category->articles_count }})</span>
+                    </a>
+                @endforeach
             </div>
         </div>
     </nav>
